@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta charset="utf-8" />
+        <meta name="google-site-verification" content="XOYlYlaEw-7-VjpfLmQkK9v9jlBtFY9kcNZtz3MOK2k" />
+        <title>
+            Averitt Express | Transportation, Supply Chain &amp; Freight Logistics</title>
+
+        <meta name="description" content="Averitt is an award-winning freight transportation and supply chain services provider, specializing in LTL, dry van, international and logistics solutions." />
+        <meta name="title" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="insight-app-sec-validation" content="436aeaf3-dc70-45a7-b572-dac5fbbd5ff7">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Roboto:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+        <link rel='stylesheet' href='/assets/styles/main.css?v=12' />
+        <link rel='stylesheet' href='/js/vendor/tour/css/bootstrap-tour-standalone.css' />
+
+        <script src="//cdn.bc0a.com/autopilot/f00000000198961/autopilot_sdk.js"></script>
+        </head>
+    <body class="ae-home">
+        <header class="ae-header--main">
+            <input type="hidden" id="user-logged-in" value="false" />
+        <div class="ae-header--utils">
+            <a href="/new-customer">
+                Register
+            </a>
+            <a href="/login.jsp" id="toggle-login">
+                Log in
+            </a>
+            <a href="tel:+18002837488">
+                <abbr title="1-800-283-7488">1-800-AVERITT</abbr>
+            </a>
+        </div>
+
+        <!-- Login form -->
+        <div class="ae-header--login-form mute" id="login-form">
+            <h2 class="secure ae-h1">Login</h2>
+
+            <form action="/Login?org.apache.catalina.filters.CSRF_NONCE=REDACTED" id="login" method="post" novalidate autocomplete="off">
+                <input type="hidden" id="redirectTarget" name="redirectTarget" value="/index.jsp" />
+                <input type="hidden" name="targetAction" value="" />
+                <input type="hidden" id="nonce-for-js" value="?org.apache.catalina.filters.CSRF_NONCE=REDACTED" />
+                <ol>
+                    <li>
+                        <label class="ae-form-element--label" for="username">Username</label>
+                        <input class="ae-input--full" id="username" name="user" type="text" autofocus />
+                    </li>
+                    <li>
+                        <label class="ae-form-element--label" for="password">Password</label>
+                        <input class="ae-input--full" id="password" name="pass" type="password" />
+                    </li>
+                </ol>
+                <div class="ae-m--top-large">
+                    <button class="ae-button--secondary" type="submit" id="login-button1">
+                        Log in
+                    </button>
+                    <span class="mute ae-m--left-large" id="login-ajax-load">
+                        <span class="ae-spinner--x-small"></span>
+                    </span>
+                </div>
+                <p><a href="/forgot-password">Forgot password</a> or need to <a href="/new-customer">Register</a>?</p>
+            </form>
+        </div>
+        <!-- /Login form -->
+
+    <div class="ae-nav-main--container">
+                <h1 class="ae-logo--header">
+            <img class="ae-logo--img" src="/assets/img/averitt-logo-white.svg" alt="Averitt" />
+        </h1>
+    <nav class="ae-nav-main " id="nav-main" role="navigation">
+    <ul class="ae-nav-main--items" id="nav-items-main">
+        <li class="ae-nav-main--landing ae-nav-main--landing-has-sub">
+            <a id="nav-top-ship" href="/public/ship/index.jsp">
+                <span class="ae-nav-main--anchor-label">Ship</span>
+            </a>
+            <ul class="ae-nav-main--subnav">
+                <li>
+                    <a href="/public/ship/index.jsp#shipment-planning">
+                        Shipment Planning
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/ship/index.jsp#get-a-rate-quote">
+                        Get a Rate Quote
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/ship/index.jsp#ship-your-ltl-shipment">
+                        Ship Your LTL Shipment
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/ship/index.jsp#tms-systems">
+                        TMS Systems
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="ae-nav-main--landing ae-nav-main--landing-has-sub">
+            <a id="nav-top-track" href="/public/track/index.jsp#track-by-service-type">
+                <span class="ae-nav-main--anchor-label">Track</span>
+            </a>
+            <ul class="ae-nav-main--subnav">
+                <li>
+                    <a href="/public/track/index.jsp#e-notifications">
+                        E-Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/track/index.jsp#other-tracking-solutions">
+                        Other Tracking Solutions
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="ae-nav-main--landing ae-nav-main--landing-has-sub">
+            <a id="nav-top-manage" href="/public/manage/index.jsp">
+                <span class="ae-nav-main--anchor-label">Manage</span>
+            </a>
+            <ul class="ae-nav-main--subnav">
+                <li>
+                    <a href="/public/manage/index.jsp#document-viewer">
+                        Document Viewer
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/manage/index.jsp#online-invoices">
+                        Online Invoices
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/manage/index.jsp#reports">
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/manage/index.jsp#claims">
+                        Claims
+                    </a>
+                </li>
+                <li>
+                    <a href="/public/manage/index.jsp#other-manage-tools">
+                        Other Tools
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="ae-nav-main--landing">
+            <a href="https://www.averitt.com">
+                <span class="ae-nav-main--anchor-label">Services&nbsp;&amp;&nbsp;Resources</span>
+            </a>
+        </li>
+    </ul>
+</nav><!-- /.nav-main --></div>
+        </header>
+        
+        <script type="application/ld+json">
+{
+    "@context": "//schema.org",
+    "@type": "WebSite",
+    "url": "//tools.averitt.com",
+    "potentialAction":
+    {
+        "@type": "SearchAction",
+        "target": "//tools.averitt.com/tracking/trackLTLById?serviceType=LTL&searchType=LTL&trackPro={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+</script>
+
+<main id="content-main" role="main" class="ae-home">
+    <div class="ae-home--callout-hero">
+        <div>
+            <h2 class="ae-home--callout-hero__heading-lead">Our Driving Force is&nbsp;People.</h2>
+        </div>
+        <div>
+            <h4 class="ae-home--callout-hero__heading">Helping You Succeed</h4>
+            <p class="ae-m--vertical-none">Our primary goal is to help people SUCCEED. From our customers, to our associates and to our team&#8217;s future, there&#8217;s a lot riding on that&nbsp;promise.</p>
+        </div>
+    </div>
+
+    <section class="ae-section--bleed__contrast">
+        <div class="ae-home--callout-container">
+            <a href="/public/ship/index.jsp" class="ae-home--callout-card">
+                <img src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/canada-shipping-services-header.jpg" alt="" />
+                <h4 class="ae-home--callout-card__label">Ship</h4>
+            </a>
+            <a href="/public/track/index.jsp#track-by-service-type" class="ae-home--callout-card">
+                <img src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/final-mile-delivery-technology-tracking.jpg" alt="" />
+                <h4 class="ae-home--callout-card__label">Track</h4>
+            </a>
+            <a href="public/manage/index.jsp" class="ae-home--callout-card">
+                <img src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/Images/Services/Technology/wms-inventory-management.jpg" alt="" />
+                <h4 class="ae-home--callout-card__label">Manage</h4>
+            </a>
+        </div>
+    </section>
+
+    <section class="ae-section--bleed">
+        <div class="ae-home--content">
+            <section class="ae-home--section-heading">
+                <h2 class="ae-h1 ae-m--vertical-none">Frequently-Used Shipping Tools</h2>
+                <p>Use the quick links below to reach our most frequently-used shipping tools. For all tools, visit our <a href="/public/ship/index.jsp">Shipment Tools page</a>.</p>
+            </section>
+
+            <div class="ae-home--frequent-tools">
+                <a class="ae-home--frequent-tool" href="/tracking/ltl/by-id">
+                    <img class="ae-home--frequent-tool-img" src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/LTL_Tracking_Icon.png" alt="" />
+
+                    <h4 class="ae-home--frequent-tool-heading">LTL Tracking</h4>
+                    <p class="ae-home--frequent-tool-desc">Quick, detailed tracking of the current status of your less-than-truckload shipment</p>
+                    <span class="ae-home--frequent-tool-action">
+                        Track Your LTL Shipment
+                    </span>
+                </a>
+                <a class="ae-home--frequent-tool" href="/secure/invoice-search">
+                    <img class="ae-home--frequent-tool-img" src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/Invoice_Search_Icon.png" alt="" />
+                    <h4 class="ae-home--frequent-tool-heading">Invoice Search</h4>
+                    <p class="ae-home--frequent-tool-desc">See your open invoices, sign up for electronic invoicing, or pay your invoice online</p>
+                    <span class="ae-home--frequent-tool-action">
+                        Review or Pay Invoices
+                    </span>
+                </a>
+                <a class="ae-home--frequent-tool" href="/secure/ratequote/ltl">
+                    <img class="ae-home--frequent-tool-img" src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/Rate_Quote_Icon.png" alt="" />
+                    <h4 class="ae-home--frequent-tool-heading">Rate Quote</h4>
+                    <p class="ae-home--frequent-tool-desc">Get a rate quote for LTL, Truckload, Specialized Services, or Carpet</p>
+                    <span class="ae-home--frequent-tool-action">
+                        Start Your Rate Quote
+                    </span>
+                </a>
+                <a class="ae-home--frequent-tool" href="/secure/document-viewer/ltl">
+                    <img class="ae-home--frequent-tool-img" src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/Image_Viewer_Icon.png" alt="" />
+                    <h4 class="ae-home--frequent-tool-heading">Image Viewer</h4>
+                    <p class="ae-home--frequent-tool-desc">See completed shipping documents, such as Bills of Lading and Delivery Receipts</p>
+                    <span class="ae-home--frequent-tool-action">
+                        View Shipping Documents
+                    </span>
+                </a>
+                <a class="ae-home--frequent-tool" href="/create-a-bol">
+                    <img class="ae-home--frequent-tool-img" src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/ShipPlus_Icon.png" alt="" />
+                    <h4 class="ae-home--frequent-tool-heading">ShipPlus</h4>
+                    <p class="ae-home--frequent-tool-desc">Our one-stop shipping interface to rate, schedule, print labels and documents for LTL</p>
+                    <span class="ae-home--frequent-tool-action">
+                        Get Started with ShipPlus
+                    </span>
+                </a>
+                <a class="ae-home--frequent-tool" href="/new-customer">
+                    <img class="ae-home--frequent-tool-img" src="//marvel-b1-cdn.bc0a.com/f00000000198961/f.hubspotusercontent00.net/hubfs/459204/Become_Customer_Icon.png" alt="" />
+                    <h4 class="ae-home--frequent-tool-heading">Become a Customer</h4>
+                    <p class="ae-home--frequent-tool-desc">Need to start shipping? Tell us about your business and our team will start the process.</p>
+                    <span class="ae-home--frequent-tool-action">
+                        Set up Your Averitt Account
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+</main><!-- /.ae-main -->
+
+<section class="ae-footer-main">
+            <p class="ae-footer-main--contact-callout">Contact us any time: <a href="tel:+18002837488">1-800-AVERITT&nbsp;(283-7488)</a> <a href="mailto:customerservice@averittexpress.com">customerservice@averitt.com</a></p>
+
+            <div class="ae-footer-main--logo">
+                <a class="ae-nav-main--logo-link" href="https://www.averitt.com">
+                    <img class="ae-logo--img" src="/assets/img/averitt-logo.svg" alt="Averitt" />
+                </a>
+            </div>
+
+            <nav class="ae-footer-main--nav">
+                <ul class="ae-footer-main--nav-menu" role="menu">
+                    <li>
+                        <a href="/public/ship/index.jsp" role="menuitem">
+                            Ship
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/public/track/index.jsp#track-by-service-type" role="menuitem">
+                            Track
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/public/manage/index.jsp" role="menuitem">
+                            Manage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.averitt.com/services" role="menuitem">
+                            Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.averitt.com/resources" role="menuitem">
+                            Resources
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.averitt.com/contact/directory" role="menuitem">
+                            Contact
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/secure/ratequote/ltl-type-determiner-at-setup" role="menuitem">
+                            Get&nbsp;a&nbsp;Rate&nbsp;Quote
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.averittcareers.com" role="menuitem">
+                            Careers
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.averittequipsyou.com" role="menuitem">
+                            Used Equipment
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.ontourlogisticsservices.com" role="menuitem">
+                            On Tour Logistics
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <section class="ae-footer-main--social">
+                <a class="ae-footer-main--social-link" href="https://www.youtube.com/channel/UCJPzpViAddp7IxgBFzCvB2g">
+                    <img class="ae-footer-main--social-link-icon" src="https://www.averitt.com/hubfs/Images/Icons/Social%20Media/youtube.svg" alt="" />
+                </a>
+                <a class="ae-footer-main--social-link" href="https://www.facebook.com/AverittOfficial">
+                    <img class="ae-footer-main--social-link-icon" src="https://www.averitt.com/hubfs/Images/Icons/Social%20Media/facebook.svg" alt="" />
+                </a>
+                <a class="ae-footer-main--social-link" href="https://www.linkedin.com/company/averitt">
+                    <img class="ae-footer-main--social-link-icon" src="https://www.averitt.com/hubfs/Images/Icons/Social%20Media/linkedin.svg" alt="" />
+                </a>
+                <a class="ae-footer-main--social-link" href="https://www.instagram.com/averittofficial/">
+                    <img class="ae-footer-main--social-link-icon" src="https://www.averitt.com/hubfs/Images/Icons/Social%20Media/instagram.svg" alt="" />
+                </a>
+            </section>
+            <p class="ae-footer-main--sub">
+                Copyright &#169; Sat Sep 05 12:12:04 CDT 2026 Averitt Express, Inc. All Rights&nbsp;Reserved. | <a href="https://www.averitt.com/privacy-policy">Privacy Policy</a> | <a href="https://www.averitt.com/terms-of-use">Terms of Use</a>
+            </p>
+            </section>
+
+        <script src="/js/vendor/jquery-3.6.4.min.js"></script>
+        <script src="/js/vendor/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+        
+        <script src="/js/vendor/tour/js/bootstrap-tour-standalone.js?v=9"></script>
+        <script src="/js/core.js"></script>
+        <script src="/js/vendor/pickadate/pickadate.js?v=3"></script>
+        <script src="/js/averitt-main.js?v=30"></script>
+        <script src="/js/xssFilter.js"></script>
+        <script src="/js/vendor/selectize.js-0.12.4/js/standalone/selectize.js?v=3"></script>
+
+        <script src="/js/analytics.js?v=5"></script>
+        <script src="/js/hubspotanalytics.js?v=0"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics 4 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GCM8KNZW6S"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-GCM8KNZW6S');
+        </script>
+        </body>
+</html>

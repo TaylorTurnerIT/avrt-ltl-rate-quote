@@ -1,7 +1,8 @@
 [package]
 name = "rust-htmx-template"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
+rust-version = "1.88"
 
 [profile.release]
 # https://github.com/johnthagen/min-sized-rust
@@ -11,14 +12,21 @@ lto = true
 codegen-units = 1
 
 [dependencies]
-askama = {version = "0.12", features = ["with-axum", "mime", "mime_guess"]}
-askama_axum = "0.4"
-axum = "0.7"
-tokio = { version = "1", features = ["full"] }
-tower = { version = "0.4", features = ["util"] }
-tower-http = { version = "0.5", features = ["compression-full"] }
-axum-embed = "0.1"
-rust-embed = "8"
-rusqlite = { version = "0.30", features = ["bundled"] }
-tokio-rusqlite = "0.5"
-refinery = {version = "0.8", features = ["rusqlite"]}
+askama = "0.16.1"
+askama_web = { version = "0.16.0", features = ["axum-0.8"] }
+axum = "0.8.9"
+# The published crate targets Axum 0.7; this upstream revision provides Axum 0.8 support.
+axum-embed = { git = "https://github.com/informationsea/axum-embed", rev = "f43a1c284fe41c5969bfcb9eae8fb85d8be0d3ff" }
+refinery = { version = "0.9.2", features = ["rusqlite"] }
+rusqlite = { version = "0.37.0", features = ["bundled"] }
+rust-embed = "8.12.0"
+tokio = { version = "1.53.1", features = ["full"] }
+tokio-rusqlite = { version = "0.7.0", features = ["bundled"] }
+tower = { version = "0.5.3", features = ["util"] }
+tower-http = { version = "0.7.1", features = ["compression-full"] }
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ["cfg(kani)"] }
+
+[package.metadata.kani.flags]
+default-unwind = "1"

@@ -2,18 +2,135 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="Hello world" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="Averitt freight transportation and shipping tools." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Abel&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 	<title>{% block title %}{{ title }}{% endblock %}</title>
-	<script src="/assets/js/htmx@1.9.10.min.js"></script>
-	<link href="/assets/css/output@{{ crate::VERSION }}.css" rel="stylesheet" />
+	<script src="/assets/js/htmx@2.0.10.min.js"></script>
+	<script src="/assets/js/response-targets@2.0.4.min.js"></script>
+	{% block app_styles %}<link rel="stylesheet" href="/assets/css/output@{{ crate::VERSION }}.css" />{% endblock %}
+	<link rel="stylesheet" href="/assets/styles/averitt-reference.css" />
 </head>
 
-<body class="flex flex-col min-h-screen">
-	<main class="flex-grow">
-		{% block content %}{% endblock %}
-	</main>
+<body class="{% block body_class %}js ae-home{% endblock %}">
+	<header class="ae-header--main">
+		<input type="hidden" id="user-logged-in" value="false" />
+
+		<div class="ae-header--utils">
+			<a href="/new-customer">Register</a>
+			<a href="#login-form" id="toggle-login" hx-get="/login-panel" hx-target="#login-form" hx-swap="outerHTML">Log in</a>
+			<a href="tel:+18002837488"><abbr title="1-800-283-7488">1-800-AVERITT</abbr></a>
+		</div>
+
+		<div class="ae-header--login-form mute" id="login-form">
+			<h2 class="secure ae-h1">Login</h2>
+			<form action="/login" id="login" method="post" novalidate autocomplete="off">
+				<ol>
+					<li>
+						<label class="ae-form-element--label" for="username">Username</label>
+						<input class="ae-input--full" id="username" name="user" type="text" autocomplete="username" />
+					</li>
+					<li>
+						<label class="ae-form-element--label" for="password">Password</label>
+						<input class="ae-input--full" id="password" name="pass" type="password" autocomplete="current-password" />
+					</li>
+				</ol>
+				<div class="ae-m--top-large">
+					<button class="ae-button--secondary" type="submit" id="login-button1">Log in</button>
+					<span class="mute ae-m--left-large" id="login-ajax-load"><span class="ae-spinner--x-small"></span></span>
+				</div>
+				<p><a href="/forgot-password">Forgot password</a> or need to <a href="/new-customer">Register</a>?</p>
+			</form>
+		</div>
+
+		<div class="ae-nav-main--container">
+			<h1 class="ae-logo--header">
+				<img class="ae-logo--img" src="/assets/img/averitt/brand/logo-white.svg" alt="Averitt" />
+			</h1>
+			<nav class="ae-nav-main" id="nav-main" role="navigation" aria-label="Primary navigation">
+				<ul class="ae-nav-main--items" id="nav-items-main">
+					<li class="ae-nav-main--landing ae-nav-main--landing-has-sub">
+						<a id="nav-top-ship" href="/public/ship/index.jsp"><span class="ae-nav-main--anchor-label">Ship</span></a>
+						<ul class="ae-nav-main--subnav">
+							<li><a href="/public/ship/index.jsp#shipment-planning">Shipment Planning</a></li>
+							<li><a href="/public/ship/index.jsp#get-a-rate-quote">Get a Rate Quote</a></li>
+							<li><a href="/public/ship/index.jsp#ship-your-ltl-shipment">Ship Your LTL Shipment</a></li>
+							<li><a href="/public/ship/index.jsp#tms-systems">TMS Systems</a></li>
+						</ul>
+					</li>
+					<li class="ae-nav-main--landing ae-nav-main--landing-has-sub">
+						<a id="nav-top-track" href="/public/track/index.jsp#track-by-service-type"><span class="ae-nav-main--anchor-label">Track</span></a>
+						<ul class="ae-nav-main--subnav">
+							<li><a href="/public/track/index.jsp#e-notifications">E-Notifications</a></li>
+							<li><a href="/public/track/index.jsp#other-tracking-solutions">Other Tracking Solutions</a></li>
+						</ul>
+					</li>
+					<li class="ae-nav-main--landing ae-nav-main--landing-has-sub">
+						<a id="nav-top-manage" href="/public/manage/index.jsp"><span class="ae-nav-main--anchor-label">Manage</span></a>
+						<ul class="ae-nav-main--subnav">
+							<li><a href="/public/manage/index.jsp#document-viewer">Document Viewer</a></li>
+							<li><a href="/public/manage/index.jsp#online-invoices">Online Invoices</a></li>
+							<li><a href="/public/manage/index.jsp#reports">Reports</a></li>
+							<li><a href="/public/manage/index.jsp#claims">Claims</a></li>
+							<li><a href="/public/manage/index.jsp#other-manage-tools">Other Tools</a></li>
+						</ul>
+					</li>
+					<li class="ae-nav-main--landing">
+						<a href="https://www.averitt.com"><span class="ae-nav-main--anchor-label">Services&nbsp;&amp;&nbsp;Resources</span></a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	{% block content %}{% endblock %}
+
+	<section class="ae-footer-main">
+		<p class="ae-footer-main--contact-callout">
+			Contact us any time:
+			<a href="tel:+18002837488">1-800-AVERITT&nbsp;(283-7488)</a>
+			<a href="mailto:customerservice@averittexpress.com">customerservice@averitt.com</a>
+		</p>
+
+		<div class="ae-footer-main--logo">
+			<a class="ae-nav-main--logo-link" href="https://www.averitt.com">
+				<img class="ae-logo--img" src="/assets/img/averitt/brand/logo.svg" alt="Averitt" />
+			</a>
+		</div>
+
+		<nav class="ae-footer-main--nav">
+			<ul class="ae-footer-main--nav-menu" role="menu">
+				<li><a href="/public/ship/index.jsp" role="menuitem">Ship</a></li>
+				<li><a href="/public/track/index.jsp#track-by-service-type" role="menuitem">Track</a></li>
+				<li><a href="/public/manage/index.jsp" role="menuitem">Manage</a></li>
+				<li><a href="https://www.averitt.com/services" role="menuitem">Services</a></li>
+				<li><a href="https://www.averitt.com/resources" role="menuitem">Resources</a></li>
+				<li><a href="https://www.averitt.com/contact/directory" role="menuitem">Contact</a></li>
+				<li><a href="/secure/ratequote/ltl-type-determiner-at-setup" role="menuitem">Get&nbsp;a&nbsp;Rate&nbsp;Quote</a></li>
+				<li><a href="https://www.averittcareers.com" role="menuitem">Careers</a></li>
+				<li><a href="https://www.averittequipsyou.com" role="menuitem">Used Equipment</a></li>
+				<li><a href="https://www.ontourlogisticsservices.com" role="menuitem">On Tour Logistics</a></li>
+			</ul>
+		</nav>
+
+		<section class="ae-footer-main--social" aria-label="Social media">
+			<a class="ae-footer-main--social-link" href="https://www.youtube.com/channel/UCJPzpViAddp7IxgBFzCvB2g"><img class="ae-footer-main--social-link-icon" src="/assets/img/averitt/social/youtube.svg" alt="YouTube" /></a>
+			<a class="ae-footer-main--social-link" href="https://www.facebook.com/AverittOfficial"><img class="ae-footer-main--social-link-icon" src="/assets/img/averitt/social/facebook.svg" alt="Facebook" /></a>
+			<a class="ae-footer-main--social-link" href="https://www.linkedin.com/company/averitt"><img class="ae-footer-main--social-link-icon" src="/assets/img/averitt/social/linkedin.svg" alt="LinkedIn" /></a>
+			<a class="ae-footer-main--social-link" href="https://www.instagram.com/averittofficial/"><img class="ae-footer-main--social-link-icon" src="/assets/img/averitt/social/instagram.svg" alt="Instagram" /></a>
+		</section>
+
+		<p class="ae-footer-main--sub">
+			Copyright &copy; 2026 Averitt Express, Inc. All Rights&nbsp;Reserved. |
+			<a href="https://www.averitt.com/privacy-policy">Privacy Policy</a> |
+			<a href="https://www.averitt.com/terms-of-use">Terms of Use</a>
+		</p>
+	</section>
+	{% block scripts %}{% endblock %}
 </body>
 
 </html>

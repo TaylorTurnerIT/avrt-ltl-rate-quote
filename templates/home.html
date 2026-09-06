@@ -1,11 +1,82 @@
 {% extends "base.html" %}
-{%- import "heading.html" as heading -%}
 
-{% block title %}Home{% endblock %}
+{% block title %}Averitt Express | Transportation, Supply Chain &amp; Freight Logistics{% endblock %}
 
 {% block content %}
-<div class="text-center">
-	{% call heading::heading("Welcome!") %}
-	<p class="text-indigo-200 mt-4">This is a simple home screen.</p>
-</div>
+<main id="content-main" role="main" class="ae-home">
+	<div class="ae-home--callout-hero">
+		<div>
+			<h2 class="ae-home--callout-hero__heading-lead">Our Driving Force is&nbsp;People.</h2>
+		</div>
+		<div>
+			<h4 class="ae-home--callout-hero__heading">Helping You Succeed</h4>
+			<p class="ae-m--vertical-none">Our primary goal is to help people SUCCEED. From our customers, to our associates and to our team&rsquo;s future, there&rsquo;s a lot riding on that&nbsp;promise.</p>
+		</div>
+	</div>
+
+	<section class="ae-section--bleed__contrast">
+		<div class="ae-home--callout-container">
+			<a href="/public/ship/index.jsp" class="ae-home--callout-card">
+				<img src="/assets/img/averitt/services/ship.jpg" alt="" />
+				<h4 class="ae-home--callout-card__label">Ship</h4>
+			</a>
+			<a href="/public/track/index.jsp#track-by-service-type" class="ae-home--callout-card">
+				<img src="/assets/img/averitt/services/track.jpg" alt="" />
+				<h4 class="ae-home--callout-card__label">Track</h4>
+			</a>
+			<a href="/public/manage/index.jsp" class="ae-home--callout-card">
+				<img src="/assets/img/averitt/services/manage.jpg" alt="" />
+				<h4 class="ae-home--callout-card__label">Manage</h4>
+			</a>
+		</div>
+	</section>
+
+	<section class="ae-section--bleed">
+		<div class="ae-home--content">
+			<section class="ae-home--section-heading">
+				<h2 class="ae-h1 ae-m--vertical-none">Frequently-Used Shipping Tools</h2>
+				<p>Use the quick links below to reach our most frequently-used shipping tools. For all tools, visit our <a href="/public/ship/index.jsp">Shipment Tools page</a>.</p>
+			</section>
+
+			<div class="ae-home--frequent-tools">
+				<a class="ae-home--frequent-tool" href="/tracking/ltl/by-id">
+					<img class="ae-home--frequent-tool-img" src="/assets/img/averitt/tools/ltl-tracking.png" alt="" />
+					<h4 class="ae-home--frequent-tool-heading">LTL Tracking</h4>
+					<p class="ae-home--frequent-tool-desc">Quick, detailed tracking of the current status of your less-than-truckload shipment</p>
+					<span class="ae-home--frequent-tool-action">Track Your LTL Shipment</span>
+				</a>
+				<a class="ae-home--frequent-tool" href="/secure/invoice-search">
+					<img class="ae-home--frequent-tool-img" src="/assets/img/averitt/tools/invoice-search.png" alt="" />
+					<h4 class="ae-home--frequent-tool-heading">Invoice Search</h4>
+					<p class="ae-home--frequent-tool-desc">See your open invoices, sign up for electronic invoicing, or pay your invoice online</p>
+					<span class="ae-home--frequent-tool-action">Review or Pay Invoices</span>
+				</a>
+				<a class="ae-home--frequent-tool" href="/secure/ratequote/ltl">
+					<img class="ae-home--frequent-tool-img" src="/assets/img/averitt/tools/rate-quote.png" alt="" />
+					<h4 class="ae-home--frequent-tool-heading">Rate Quote</h4>
+					<p class="ae-home--frequent-tool-desc">Get a rate quote for LTL, Truckload, Specialized Services, or Carpet</p>
+					<span class="ae-home--frequent-tool-action">Start Your Rate Quote</span>
+				</a>
+				<a class="ae-home--frequent-tool" href="/secure/document-viewer/ltl">
+					<img class="ae-home--frequent-tool-img" src="/assets/img/averitt/tools/image-viewer.png" alt="" />
+					<h4 class="ae-home--frequent-tool-heading">Image Viewer</h4>
+					<p class="ae-home--frequent-tool-desc">See completed shipping documents, such as Bills of Lading and Delivery Receipts</p>
+					<span class="ae-home--frequent-tool-action">View Shipping Documents</span>
+				</a>
+				<a class="ae-home--frequent-tool" href="/create-a-bol">
+					<img class="ae-home--frequent-tool-img" src="/assets/img/averitt/tools/shipplus.png" alt="" />
+					<h4 class="ae-home--frequent-tool-heading">ShipPlus</h4>
+					<p class="ae-home--frequent-tool-desc">Our one-stop shipping interface to rate, schedule, print labels and documents for LTL</p>
+					<span class="ae-home--frequent-tool-action">Get Started with ShipPlus</span>
+				</a>
+				<a class="ae-home--frequent-tool" href="/new-customer">
+					<img class="ae-home--frequent-tool-img" src="/assets/img/averitt/tools/become-customer.png" alt="" />
+					<h4 class="ae-home--frequent-tool-heading">Become a Customer</h4>
+					<p class="ae-home--frequent-tool-desc">Need to start shipping? Tell us about your business and our team will start the process.</p>
+					<span class="ae-home--frequent-tool-action">Set up Your Averitt Account</span>
+				</a>
+			</div>
+		</div>
+	</section>
+</main>
 {% endblock %}

@@ -1,4 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "daisyui";
+@source "../../templates";
 
+@theme {
+	--font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+	--font-display: "Abel", ui-sans-serif, sans-serif;
+	--color-brand: #c2202e;
+	--color-brand-dark: #a71927;
+	--color-link: #0c83c2;
+	--color-ink: #444444;
+	--color-label: #9d9fa2;
+	--color-muted: #e7e8e9;
+	--color-night: #111111;
+}
+
+/* Application-specific extensions belong here; the reference page styles are kept in averitt-reference.css. */
+@layer base {
+	img {
+		display: inline-block;
+	}
+
+	:focus-visible {
+		outline: 3px solid #0c83c2;
+		outline-offset: 3px;
+	}
+}

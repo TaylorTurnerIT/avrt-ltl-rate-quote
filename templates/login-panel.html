@@ -1,0 +1,19 @@
+<div class="ae-header--login-form" id="login-form">
+	<h2 class="secure ae-h1">Login</h2>
+	<form action="/login" id="login" method="post" novalidate autocomplete="off">
+		<ol>
+			<li>
+				<label class="ae-form-element--label" for="username">Username</label>
+				<input class="ae-input--full" id="username" name="user" type="text" autocomplete="username" />
+			</li>
+			<li>
+				<label class="ae-form-element--label" for="password">Password</label>
+				<input class="ae-input--full" id="password" name="pass" type="password" autocomplete="current-password" />
+			</li>
+		</ol>
+		<div class="ae-m--top-large">
+			<button class="ae-button--secondary" type="submit" id="login-button1">Log in</button>
+		</div>
+		<p><a href="/forgot-password">Forgot password</a> or need to <a href="/new-customer">Register</a>?</p>
+	</form>
+</div>

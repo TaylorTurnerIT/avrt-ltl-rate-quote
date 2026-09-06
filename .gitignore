@@ -3,3 +3,4 @@ db.sqlite
 .idea
 *.iml
 assets/css
+node_modules/

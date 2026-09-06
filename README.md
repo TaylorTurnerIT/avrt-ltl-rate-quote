@@ -1,101 +1,116 @@
 # Rust + HTMX Template
 
-This is a template repository for stiches together a number of technologies that you may use 
-to server a website using Rust and HTMX.
+A small Rust web application starter built with Axum, Askama, HTMX, SQLite,
+Tailwind CSS, and daisyUI.
 
-## Getting Started
+## Stack
 
-In the top right, select the dropdown __Use this template__ and select __Create a new repository__.
+- Axum 0.8 with Askama 0.16 templates
+- SQLite through rusqlite and tokio-rusqlite
+- Refinery for embedded database migrations
+- Tailwind CSS 4 with daisyUI 5
+- HTMX 2 with the response-targets extension
+- Kani model-checking support
 
-## Technologies
+## Prerequisites
 
-A few different technologies are configured to help getting off the ground easier.
+- Rust installed through [rustup](https://rustup.rs/)
+- Node.js and npm
+- [just](https://just.systems/) for the repository shortcuts
+- Kani is optional for local development. See the [Kani installation guide](https://model-checking.github.io/kani/install-guide.html).
 
-- [tokio-rusqlite](https://github.com/programatik29/tokio-rusqlite/tree/master) for database layer
-  - Stubbed to use SQLite
-- [Tailwind CSS](https://tailwindcss.com/) for styling
-  - Output is generated with the [CLI](https://tailwindcss.com/docs/installation)
-  - Automatically ran when the application is built (set in `build.rs`)
-- [Askama](https://djc.github.io/askama/askama.html) for creating HTML
-- [HTMX](https://htmx.org/) for HTML interaction
-- [cargo-watch](https://github.com/watchexec/cargo-watch) to rebuild your application when something changes.
-
-## Structure
-
-```text
-.
-├── Cargo.lock
-├── Cargo.toml
-├── README.md
-├── assets
-│   ├── css
-│   │   └── output@dev.css
-│   ├── img
-│   │   └── favicon.ico
-│   ├── js
-│   │   └── htmx@1.9.10.min.js
-│   └── styles
-│       └── input.css
-├── build.rs
-├── db.sqlite
-├── src
-│   ├── db
-│   │   └── mod.rs
-│   └── main.rs
-├── tailwind.config.js
-└── templates
-    ├── base.html
-    ├── heading.html
-    └── home.html
-```
-
-### Templates
-
-This is where you create the Askama templates to be rendered.
-
-### DB
-
-General module where to put your database releated operations.
-
-### Assets
-
-This is where your assets live. Any Javascript, images, or styling needs to go in the 
-`assets` directory. The directory will be embedded into the application.
-
-Note, the `assets/css` will be ignored by `git` (configured in `.gitignore`) since the 
-files that are written to this directory are done by the Tailwind CSS CLI. Custom styles should
-go in the `assets/styles/input.css` file.
-
-### Styles
-
-This contains the `input.css` that the Tailwind CSS CLI uses to generate your output CSS. 
-Update `input.css` with any custom CSS you need and it will be included in the output CSS.
+The repository includes `rust-toolchain.toml`, which selects the stable Rust
+toolchain and the formatting and Clippy components.
 
 ## Run
 
-Running the application is straight forward.
+The common development commands are available through [just](https://just.systems/):
 
-### Prerequisites
+```shell
+just setup
+just preview
+```
 
-- Install [tailwindcss CLI](https://tailwindcss.com/docs/installation)
+Open <http://localhost:8080>. `just preview` binds to `0.0.0.0:8080`, so the
+same preview is reachable from an authenticated Tailscale device at
+`http://<this-machine-tailscale-ip>:8080`.
 
-### Cargo
+Authenticate this machine once with `tailscale up` if needed, then print the
+address with `just preview-url`.
 
-Simply run the cargo command to run the application.
+If you are not using just, install the frontend dependencies once:
+
+```shell
+npm ci
+```
+
+Then start the application:
 
 ```shell
 cargo run
 ```
 
-Or run `cargo-watch` to have the application rebuilt when something changes.
+Open <http://localhost:8080>. Cargo runs the Tailwind CLI from the local npm
+installation while compiling the application. The generated CSS is embedded
+in the binary and is ignored by Git.
+
+To use a different address or port, set `BIND_ADDRESS`, for example:
 
 ```shell
-cargo watch -x run
+BIND_ADDRESS=127.0.0.1:9000 cargo run --locked
 ```
 
-## Github Workflow
+For a standalone frontend build or a CSS watcher:
 
-The repository comes with two Github workflows as well. One called `ci.yml` that lints and 
-tests your code. The other called `release.yml` that creates a tag, GitHub Release, and 
-attaches the binaries to the Release.
+```shell
+npm run build:css
+npm run watch:css
+```
 
+## Verify
+
+```shell
+cargo fmt --all -- --check
+cargo check --locked
+cargo test --locked
+cargo clippy --locked --all-targets --all-features -- -D warnings
+```
+
+To install and run Kani locally:
+
+```shell
+cargo install --locked kani-verifier --version 0.67.0
+cargo kani setup
+cargo kani
+```
+
+The equivalent just commands are `just kani-install`, `just kani-setup`, and
+`just kani`.
+
+The Kani workflow runs the same verifier in GitHub Actions.
+
+## Structure
+
+```text
+.
+├── assets
+│   ├── img
+│   ├── js
+│   └── styles
+├── build.rs
+├── Cargo.toml
+├── migrations
+├── package.json
+├── src
+│   ├── db
+│   └── main.rs
+└── templates
+```
+
+The landing page mirrors the source structure from
+<https://tools.averitt.com/>. The downloaded reference snapshot is kept under
+`references/averitt-tools/`; its local assets are organized under
+`assets/img/averitt/`, and the source stylesheet is
+`assets/styles/averitt-reference.css`. Edit `templates/` for Askama views,
+`assets/styles/input.css` for Tailwind and daisyUI configuration, and
+`assets/js/` for browser-side assets.

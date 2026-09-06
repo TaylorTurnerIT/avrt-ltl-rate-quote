@@ -1,0 +1,19 @@
+{
+  "name": "rust-htmx-template-assets",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/styles/input.css -o ./assets/css/output.css",
+    "build:css:minify": "tailwindcss -i ./assets/styles/input.css -o ./assets/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./assets/styles/input.css -o ./assets/css/output.css --watch"
+  },
+  "dependencies": {
+    "htmx-ext-response-targets": "2.0.4",
+    "htmx.org": "2.0.10"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "daisyui": "5.7.28",
+    "tailwindcss": "4.3.3"
+  }
+}
