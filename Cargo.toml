@@ -17,6 +17,8 @@ askama_web = { version = "0.16.0", features = ["axum-0.8"] }
 axum = "0.8.9"
 # The published crate targets Axum 0.7; this upstream revision provides Axum 0.8 support.
 axum-embed = { git = "https://github.com/informationsea/axum-embed", rev = "f43a1c284fe41c5969bfcb9eae8fb85d8be0d3ff" }
+lopdf = "0.36"
+serde_json = "1"
 refinery = { version = "0.9.2", features = ["rusqlite"] }
 rusqlite = { version = "0.37.0", features = ["bundled"] }
 rust-embed = "8.12.0"

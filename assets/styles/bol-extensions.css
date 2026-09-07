@@ -1,0 +1,82 @@
+/* Local extensions for the Print/Email BOL page. Scoped under .bol-ext-*
+ * so the cloned reference markup keeps its exact rendering. */
+
+.bol-ext-container > h3.ae-field-header {
+	margin: 0 0 0.25rem;
+}
+
+.bol-ext-container > h5 {
+	margin: 0.75rem 0 0.25rem;
+}
+
+.bol-ext-container .bol-ext-subitems > section {
+	margin-bottom: 0.5rem;
+}
+
+.bol-ext-item-label {
+	font-size: 0.875rem;
+	font-weight: 700;
+	margin: 0 0 0.25rem;
+}
+
+.bol-ext-container {
+	position: relative;
+}
+
+.bol-ext-container > h3 .bol-ext-x {
+	position: absolute;
+	top: 0.35rem;
+	/* measured: offsets resolve content-box-relative here, so -4px
+	 * lands the X 10px inside the container's outer right edge */
+	right: -4px;
+	float: none;
+}
+
+.bol-ext-add-un {
+	font-size: 1.125rem;
+	font-weight: 700;
+	padding: 0 0.5rem;
+}
+
+/* Cloned hazmat headers: smaller text, tight margins. */
+.bol-ext-clone .hazmat-group > h3.ae-field-header {
+	font-size: 1rem;
+	line-height: 1.4;
+	margin: 0 0 0.25rem;
+}
+
+/* Read-only boxes are not interactive: gray them. Selects stay white so
+ * it is clear they are interactive. */
+#add-edit-bol input[readonly] {
+	background-color: #e7e8e9;
+}
+
+#add-edit-bol select {
+	background-color: #fff;
+}
+
+/* Implied UN prefix fused to the left of UN inputs. Styled like the
+ * surrounding container box so it reads as chrome, never as editable
+ * text. Heights stretch to match the input exactly. */
+.bol-ext-un-wrap {
+	display: inline-flex;
+	align-items: stretch;
+}
+
+.bol-ext-un-wrap > .ae-input {
+	margin-bottom: 0;
+	border-left: none;
+}
+
+.bol-ext-un-prefix {
+	display: flex;
+	align-items: center;
+	padding: 0 0.5rem;
+	border: 2px solid #e7e8e9;
+	border-right: none;
+	border-radius: 2px 0 0 2px;
+	background: #e7e8e9;
+	color: #444;
+	font-size: 0.875rem;
+	white-space: nowrap;
+}

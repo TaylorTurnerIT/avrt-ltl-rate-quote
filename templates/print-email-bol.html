@@ -6,6 +6,8 @@
 
 {% block app_styles %}{% endblock %}
 
+{% block extra_styles %}<link rel="stylesheet" href="/assets/styles/bol-extensions.css" />{% endblock %}
+
 {% block content %}
 <main id="content-main" class="content-main ae-main shipplus" data-is-edit-bol="true" data-is-public-bol="true">
     <header class="ae-page-header">
@@ -6233,6 +6235,27 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+// Restores saved form values before the page scripts initialize, so the
+// reference logic picks them up (hazmat sections expand, lookups re-run).
+// The extension script below rebuilds dynamic rows and demo content.
+(function () {
+	try {
+		var raw = JSON.parse(window.localStorage.getItem('avrt-bol-form-v1') || 'null');
+		if (!raw) { return; }
+		Object.keys(raw).forEach(function (id) {
+			var el = document.getElementById(id);
+			if (!el) { return; }
+			var s = raw[id];
+			if (el.type === 'checkbox' || el.type === 'radio') {
+				el.checked = !!s.c;
+			} else if ('value' in el) {
+				el.value = s.v || '';
+			}
+		});
+	} catch (e) { /* storage unavailable: start blank */ }
+})();
+</script>
 <script src="/assets/js/vendor/jquery-3.6.4.min.js"></script>
 <script src="/assets/js/vendor/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
 <script src="/assets/js/core.js"></script>
@@ -6245,5 +6268,6 @@
 <script src="/assets/js/CharacterCounter.js"></script>
 <script src="/assets/js/addressLine.js"></script>
 <script src="/assets/js/shipPlus/shipPlusEditBol.js"></script>
+<script src="/assets/js/bol-extensions.js"></script>
 <script src="/assets/js/vendor/bootstrap-3.3.2.js"></script>
 {% endblock %}
